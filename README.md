@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Presentation
 
-This Project is a from a tutorial found on [alphorm.com](https://www.alphorm.com/tutoriel/formation-en-ligne-reactjs-redux-et-lapi-contexte-creer-un-site-e-commerce-de-a-a-z) .
+This Project is from a tutorial found on [alphorm.com](https://www.alphorm.com/tutoriel/formation-en-ligne-reactjs-redux-et-lapi-contexte-creer-un-site-e-commerce-de-a-a-z) .
 
 It's a simple E-commerce app using React.js and React-redux, which allows to use a global State for a ReactJS application, instead of only have states and props locally.
 
