@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const OrderSummary = () => {
+
     const items = useSelector(state => state.items);
     const [subTotal, setSubTotal] = useState(0.00);
     const [total, setTotal] = useState(0.00);
@@ -41,15 +43,12 @@ const OrderSummary = () => {
                     </ul>
                 </li>
             </ul>
-            <button
-                type="button"
-                className="btn btn-light btn-lg btn-block checkout bg-crimson"
-                disabled={true}
+            <Link
+                to='/checkout'
+                className={`btn btn-lg btn-block checkout bg-crimson text-white ${ !items.length && 'disabled' }`}
             >
-                <a href="!#" className="white">
-                    Valider
-                </a>
-            </button>
+                Valider
+            </Link>
         </>
     );
 };

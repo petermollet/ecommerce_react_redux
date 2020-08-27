@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const TableCart = () => {
     const items = useSelector(state => state.items);
-    if(items.length === 0) return <div className="text-center"><i className="text-danger">Le panier est vide</i></div>
+    if(!items.length) return <div className="text-center"><i className="text-danger">Le panier est vide</i></div>
     return (
         <table>
             <thead>

@@ -179,11 +179,17 @@ footer {
   font-size: 14px;
   right: -10px;
 }
+
+
+
 /* utils */
 .active {
   font-weight: 700;
 }
 .btn-group span:hover{
+  cursor: default;
+}
+.cursor-default{
   cursor: default;
 }
 .focus {
@@ -200,7 +206,7 @@ footer {
   color: #eb2e54!important;
 }
 .bg-crimson {
-  background-color: crimson!important;
+  background-color: #eb2e54!important;
 }
 .red {
   border: 1px solid crimson;
