@@ -21,7 +21,9 @@ body::-webkit-scrollbar {
 .card {
   margin-bottom: 40px;
   position: relative;
-  box-shadow: 5px 5px 3px #e9e9e9b0;;
+  -moz-box-shadow: 0 0 10px #c2c1c1b0;
+  -webkit-box-shadow: 0 0 10px #c2c1c1b0;
+  box-shadow: 0 0 10px #c2c1c1b0;
 }
 .card img {
   display: inline-block;
@@ -198,6 +200,12 @@ footer {
 .grey {
   color: #333;
   position: relative;
+}
+.invalid{
+  box-shadow: 0 0 5px 1px red;
+}
+.invalid:hover{
+  box-shadow: none;
 }
 .lightGray {
   color: #989797;

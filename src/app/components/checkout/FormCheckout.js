@@ -1,18 +1,10 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
 import InputString from '../../shared/components/inputs/InputString';
 import { MsgConst } from './../../shared/config/msgConst';
-
-const initialValues = {
-    firstName:'',
-    lastName:'',
-    email:'',
-    address:'',
-    zipCode:'',
-    city:''
-}
+import { UserProfileContext } from '../../lib/UserProfileContext';
 
 const validationSchema = yup.object().shape({
     firstName: yup.string().required(MsgConst.required).trim(),
@@ -23,40 +15,58 @@ const validationSchema = yup.object().shape({
     city: yup.string().required(MsgConst.required).trim()
 });
 
-const FormCheckout = () => {
+const FormCheckout = ({ submit }) => {
+
+    const { 
+        firstName,
+        lastName,
+        email,
+        address,
+        zipCode,
+        city,
+        setUserProfileContext 
+    } = useContext(UserProfileContext);
+
+    const initialValues = {
+        firstName,
+        lastName,
+        email,
+        address,
+        zipCode,
+        city
+    }
+    
     return (  
         <Formik
-            onSubmit={ (values) => console.log(values) }
+            onSubmit={ submit }
             initialValues={ initialValues }
             validationSchema={ validationSchema }
         >
             {({ values, handleSubmit, isSubmitting }) => (
                 <form onSubmit={ handleSubmit }>
-                    <div className="row">
+                    <div className="row mb-3">
                         <div className="col">
-                            <Field name='firstName' value={values.firstName} component={InputString} placeholder='Prénom' />
+                            <Field name='firstName' value={values.firstName} setContext={setUserProfileContext} component={InputString} placeholder='Prénom' />
                         </div>
                         <div className="col">
-                            <Field name='lastName' value={values.lastName} component={InputString} placeholder='Nom de famille'/>
+                            <Field name='lastName' value={values.lastName} setContext={setUserProfileContext} component={InputString} placeholder='Nom de famille'/>
                         </div>
                     </div>
-                    <br />
                     <div className="form-group">
-                        <Field name='email' value={values.email} component={InputString} placeholder='Adresse email'/>
-                        <small id="emailHelp" className="form-text text-muted">
+                        <Field name='email' value={values.email} setContext={setUserProfileContext} component={InputString} placeholder='Adresse email'/>
+                        <small style={{ marginTop:'-20px'}} id="emailHelp" className="form-text text-muted">
                             Nous ne partagerons jamais votre adresse email 
                         </small>
                     </div>
                     <div className="form-group">
-                        <Field name='address' value={values.address} component={InputString} placeholder='Adresse'/>
+                        <Field name='address' value={values.address} setContext={setUserProfileContext} component={InputString} placeholder='Adresse'/>
                     </div>
-                    <br />
                     <div className="row">
                         <div className="col">
-                            <Field name='zipCode' value={values.zipCode} component={InputString} placeholder='Code Postal'/>
+                            <Field name='zipCode' value={values.zipCode} setContext={setUserProfileContext} component={InputString} placeholder='Code Postal'/>
                         </div>
                         <div className="col">
-                            <Field name='city' value={values.city} component={InputString} placeholder='Ville'/>
+                            <Field name='city' value={values.city} setContext={setUserProfileContext} component={InputString} placeholder='Ville'/>
                         </div>
                     </div>
                     <br />

@@ -39,6 +39,12 @@ function actionRemoveFromCart(state, payload) {
     });
 }
 
+function actionClearCart(state) {
+    return Object.assign({}, state, {
+        items: []
+    })
+}
+
 function actionSaveToLocalStorage(object) {
     localStorage.setItem("items", JSON.stringify(object));
 }
@@ -48,6 +54,7 @@ export default function onlineStoreApp(state = initialState, action) {
         case actions.ADD_TO_CART : return actionAddToCart(state, action.payload);
         case actions.UPDATE_CART : return actionUpdateCart(state, action.payload);
         case actions.REMOVE_FROM_CART : return actionRemoveFromCart(state, action.payload);
+        case actions.CLEAR_CART: return actionClearCart(state);
         case actions.SAVE_CART: actionSaveToLocalStorage(action.payload); return state;
         default: return state;
     }

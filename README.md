@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Simple E-commerce app using React.js and React-redux, which allows to use a global State for a ReactJS application, instead of only have states and props locally.
 
-It also use hooks and functional components.
+It also use hooks and functional components, Formik and Yup, and React.Context.
 
 ## Available Scripts
 

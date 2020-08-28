@@ -1,0 +1,1 @@
+set BROWSER=none&&npm start
